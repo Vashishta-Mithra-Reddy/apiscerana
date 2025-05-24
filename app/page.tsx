@@ -82,7 +82,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="section-title">Our Story</h2>
-              <p className="mb-6 text-lg text-honey-dark">As a humble Himalayan honey farmer, I've dedicated my life to the art of beekeeping. My journey began with a simple love for these incredible creatures and has evolved into a passion for preserving our precious ecosystem.</p>
+              <p className="mb-6 text-lg text-honey-dark">As a humble Himalayan farmer, I've dedicated my life to the art of beekeeping. My journey began with a simple love for these incredible creatures and has evolved into a passion for preserving our precious ecosystem.</p>
               <p className="mb-6 text-lg text-honey-dark">My home is surrounded by beehives - they're in my garden, on my rooftop, and even inside specially designed areas of my home. Each day, I work alongside my bees, learning from them and ensuring they thrive in their natural environment.</p>
               <p className="text-lg text-honey-dark">The honey we harvest is pure, raw, and packed with the essence of Himalayan wildflowers. Every jar tells the story of our mountains, our bees, and our commitment to sustainable practices.</p>
             </div>
@@ -107,8 +107,8 @@ export default function Home() {
           </p>
           
           <div className="flex justify-center">
-            <div className="bg-nature-cream rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105 max-w-md">
-              <div className="relative h-80">
+            <div className="bg-nature-cream rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-[1.02] w-full max-w-4xl flex flex-col md:flex-row">
+              <div className="relative md:w-2/5 h-80 md:h-auto">
                 <Image 
                   src="/honey_jar.jpg" 
                   alt="Himalayan Multi-Floral Honey" 
@@ -116,7 +116,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-8">
+              <div className="p-8 md:w-3/5">
                 <h3 className="text-2xl font-bold text-honey-dark mb-3">Himalayan Multi-Floral Honey</h3>
                 <p className="text-honey-brown mb-6">
                   Our signature honey is a perfect representation of the Himalayan ecosystem. As our bees naturally forage from diverse wildflowers across the mountain slopes, they create a honey with complex flavors that change subtly with each season.
