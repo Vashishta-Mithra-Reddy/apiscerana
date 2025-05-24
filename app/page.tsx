@@ -1,100 +1,389 @@
+'use client';
+
 import Image from "next/image";
+import Link from "next/link";
+import { 
+  Menu, 
+  MapPin, 
+  Mail, 
+  Phone, 
+  Facebook, 
+  Instagram, 
+  Twitter, 
+  Check, 
+  ChevronRight,
+  Clock,
+  Leaf,
+  Heart
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import HoneyBee from "./components/HoneyBee";
 
 export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
+  
+  // Handle client-side mounting
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen">
+      {/* Only render bee on client side */}
+      {isMounted && <HoneyBee />}
+      
+      {/* Navigation */}
+      <nav className="bg-honey text-white sticky top-0 z-50 backdrop-blur-sm">
+        <div className="container-custom flex justify-between items-center py-4">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl font-bold">Himalayan Honey</span>
+          </div>
+          <div className="hidden md:flex gap-8 items-center">
+            <a href="#about" className="hover:text-honey-light transition-colors">About</a>
+            <a href="#products" className="hover:text-honey-light transition-colors">Products</a>
+            <a href="#sustainable" className="hover:text-honey-light transition-colors">Sustainability</a>
+            <a href="#contact" className="hover:text-honey-light transition-colors">Contact</a>
+            <Link href="/shop" className="btn-primary">Shop Now</Link>
+          </div>
+          <button className="md:hidden text-white">
+            <Menu className="w-6 h-6" />
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative h-[90vh] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <div className="relative w-full h-full">
+            <Image 
+              src="/honeyz.jpg" 
+              alt="Himalayan Honey Farm" 
+              fill 
+              priority
+              className="object-cover brightness-75"
+            />
+          </div>
+        </div>
+        <div className="container-custom relative z-10 text-white">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">Pure Himalayan Honey</h1>
+            <p className="text-xl mb-8">Sustainably harvested from the pristine mountains of the Himalayas</p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/shop" className="btn-primary text-center">Shop Our Honey</Link>
+              <a href="#about" className="btn-secondary text-center bg-white/20 border-white text-white hover:bg-white hover:text-honey-dark">Learn Our Story</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 bg-nature-cream">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="section-title">Our Story</h2>
+              <p className="mb-6 text-lg text-honey-dark">As a humble Himalayan honey farmer, I've dedicated my life to the art of beekeeping. My journey began with a simple love for these incredible creatures and has evolved into a passion for preserving our precious ecosystem.</p>
+              <p className="mb-6 text-lg text-honey-dark">My home is surrounded by beehives - they're in my garden, on my rooftop, and even inside specially designed areas of my home. Each day, I work alongside my bees, learning from them and ensuring they thrive in their natural environment.</p>
+              <p className="text-lg text-honey-dark">The honey we harvest is pure, raw, and packed with the essence of Himalayan wildflowers. Every jar tells the story of our mountains, our bees, and our commitment to sustainable practices.</p>
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image 
+                src="/honey.jpg" 
+                alt="Himalayan Beekeeper" 
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section id="products" className="py-20 bg-white">
+        <div className="container-custom">
+          <h2 className="section-title text-center mb-6 text-honey-dark">Our Honey</h2>
+          <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-honey-brown">
+            We produce only pure, natural multi-floral honey. Our bees forage freely among the diverse Himalayan wildflowers surrounding our farm, creating a unique honey that captures the essence of our mountain ecosystem.
+          </p>
+          
+          <div className="flex justify-center">
+            <div className="bg-nature-cream rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105 max-w-md">
+              <div className="relative h-80">
+                <Image 
+                  src="/honey_jar.jpg" 
+                  alt="Himalayan Multi-Floral Honey" 
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-honey-dark mb-3">Himalayan Multi-Floral Honey</h3>
+                <p className="text-honey-brown mb-6">
+                  Our signature honey is a perfect representation of the Himalayan ecosystem. As our bees naturally forage from diverse wildflowers across the mountain slopes, they create a honey with complex flavors that change subtly with each season.
+                </p>
+                <div className="flex flex-col gap-4 mb-6">
+                  <div className="flex items-start gap-3">
+                    <span className="text-nature-green mt-1">
+                      <Check className="h-5 w-5" />
+                    </span>
+                    <span className="text-honey-brown">100% pure and unprocessed</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-nature-green mt-1">
+                      <Check className="h-5 w-5" />
+                    </span>
+                    <span className="text-honey-brown">Rich in natural enzymes and antioxidants</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-nature-green mt-1">
+                      <Check className="h-5 w-5" />
+                    </span>
+                    <span className="text-honey-brown">Harvested using traditional methods</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="text-lg font-bold text-honey-dark">800 Rs.</span>
+                    <span className="text-sm ml-2 text-honey-brown">(1000g jar)</span>
+                  </div>
+                  <Link href="/shop" className="btn-primary">Shop Now</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-16 bg-honey-light/10 p-8 rounded-lg">
+            <h3 className="text-xl font-bold text-honey-dark mb-4 text-center">The Natural Cycle of Multi-Floral Honey</h3>
+            <div className="grid md:grid-cols-3 gap-8 mt-8">
+              <div className="text-center">
+                <div className="bg-honey-light/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Leaf className="h-8 w-8 text-nature-green" />
+                </div>
+                <h4 className="font-bold mb-2 text-honey-dark">Spring Bloom</h4>
+                <p className="text-honey-brown">Our bees begin foraging from early Himalayan blooms, creating honey with delicate floral notes.</p>
+              </div>
+              <div className="text-center">
+                <div className="bg-honey-light/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="h-8 w-8 text-honey-dark" />
+                </div>
+                <h4 className="font-bold mb-2 text-honey-dark">Summer Richness</h4>
+                <p className="text-honey-brown">Peak summer brings a diversity of mountain flowers, resulting in our richest, most complex honey.</p>
+              </div>
+              <div className="text-center">
+                <div className="bg-honey-light/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-8 w-8 text-honey-brown" />
+                </div>
+                <h4 className="font-bold mb-2 text-honey-dark">Autumn Harvest</h4>
+                <p className="text-honey-brown">We carefully harvest only excess honey, ensuring our bees have enough to sustain through winter.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sustainability Section */}
+      <section id="sustainable" className="py-20 bg-honey-light/20">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1 relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image 
+                src="/honeyx.jpg" 
+                alt="Sustainable Beekeeping" 
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="section-title text-white">Sustainable Beekeeping</h2>
+              <p className="mb-6 text-lg text-white">Our commitment to the environment goes beyond producing honey. We practice sustainable beekeeping methods that respect the natural cycles of our bees and protect their habitats.</p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-nature-green mt-1">
+                    <Check className="h-5 w-5" />
+                  </span>
+                  <span className="text-white">We never harvest all the honey, ensuring our bees have enough to thrive year-round</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-nature-green mt-1">
+                    <Check className="h-5 w-5" />
+                  </span>
+                  <span className="text-white">Our hives are made from sustainable materials and designed to mimic natural habitats</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-nature-green mt-1">
+                    <Check className="h-5 w-5" />
+                  </span>
+                  <span className="text-white">We plant bee-friendly flowers and trees to support biodiversity in our region</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-nature-green mt-1">
+                    <Check className="h-5 w-5" />
+                  </span>
+                  <span className="text-white">We use zero chemicals or antibiotics in our beekeeping practices</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      {/* <section className="py-20 bg-white">
+        <div className="container-custom">
+          <h2 className="section-title text-center mb-12">What Our Customers Say</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-nature-cream p-6 rounded-lg shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="text-honey-amber">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="inline-block">★</span>
+                  ))}
+                </div>
+              </div>
+              <p className="italic mb-4">"This is the purest honey I've ever tasted. You can really taste the difference when honey is harvested with such care and respect for nature."</p>
+              <p className="font-bold text-honey-dark">- Sarah J.</p>
+            </div>
+            
+            <div className="bg-nature-cream p-6 rounded-lg shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="text-honey-amber">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="inline-block">★</span>
+                  ))}
+                </div>
+              </div>
+              <p className="italic mb-4">"The rhododendron honey has such a unique flavor profile. It's become a staple in my kitchen and my go-to gift for friends and family."</p>
+              <p className="font-bold text-honey-dark">- Michael T.</p>
+            </div>
+            
+            <div className="bg-nature-cream p-6 rounded-lg shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="text-honey-amber">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="inline-block">★</span>
+                  ))}
+                </div>
+              </div>
+              <p className="italic mb-4">"Not only is the honey exceptional, but knowing it's produced sustainably makes it even sweeter. I love supporting businesses that care for our planet."</p>
+              <p className="font-bold text-honey-dark">- Priya K.</p>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-honey-dark text-white">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
+              <p className="mb-8 text-lg">Have questions about our honey or beekeeping practices? Want to arrange a visit to our farm? We'd love to hear from you!</p>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-honey-light mt-1">
+                    <MapPin className="h-5 w-5" />
+                  </span>
+                  <span>Chander Sen Thakur, VPO Burua, Manali, Burwa, Himachal Pradesh 175103</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-honey-light mt-1">
+                    <Mail className="h-5 w-5" />
+                  </span>
+                  <span>contact@himalayanhoney.com</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-honey-light mt-1">
+                    <Phone className="h-5 w-5" />
+                  </span>
+                  <span>+91 98170 46868</span>
+                </div>
+              </div>
+              
+              <div className="mt-8 flex gap-4">
+                <a href="#" className="text-honey-light hover:text-white transition-colors">
+                  <Facebook className="h-6 w-6" />
+                </a>
+                <a href="#" className="text-honey-light hover:text-white transition-colors">
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a href="#" className="text-honey-light hover:text-white transition-colors">
+                  <Twitter className="h-6 w-6" />
+                </a>
+              </div>
+              
+              <div className="mt-8 w-full h-[300px] rounded-lg overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53965.20574836654!2d77.1746143!3d32.289673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39048775d6c6c549%3A0x2a182642dd11aebb!2sHimalayan%20Honey%20Bee%20farm%20Manali!5e0!3m2!1sen!2sin!4v1748109513226!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="100%" 
+                  style={{border: 0}} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+            
+            <div>
+              <form className="bg-white p-6 rounded-lg shadow-lg text-honey-brown">
+                <h3 className="text-xl font-bold text-honey-dark mb-4">Send Us a Message</h3>
+                <div className="mb-4">
+                  <label htmlFor="name" className="block mb-2 font-medium">Your Name</label>
+                  <input type="text" id="name" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-honey" />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="email" className="block mb-2 font-medium">Your Email</label>
+                  <input type="email" id="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-honey" />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="message" className="block mb-2 font-medium">Message</label>
+                  <textarea id="message" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-honey"></textarea>
+                </div>
+                <button type="submit" className="btn-primary w-full">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-honey-brown text-white py-12">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Himalayan Honey</h3>
+              <p>Pure, natural honey from the pristine mountains of the Himalayas.</p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="hover:text-honey-light transition-colors flex items-center gap-1"><ChevronRight className="h-4 w-4" /> Home</a></li>
+                <li><a href="#about" className="hover:text-honey-light transition-colors flex items-center gap-1"><ChevronRight className="h-4 w-4" /> About Us</a></li>
+                <li><a href="#products" className="hover:text-honey-light transition-colors flex items-center gap-1"><ChevronRight className="h-4 w-4" /> Products</a></li>
+                <li><Link href="/shop" className="hover:text-honey-light transition-colors flex items-center gap-1"><ChevronRight className="h-4 w-4" /> Shop</Link></li>
+                <li><a href="#contact" className="hover:text-honey-light transition-colors flex items-center gap-1"><ChevronRight className="h-4 w-4" /> Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Our Commitment</h4>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2"><Leaf className="h-4 w-4 text-honey-light" /> Sustainable Beekeeping</li>
+                <li className="flex items-center gap-2"><Heart className="h-4 w-4 text-honey-light" /> Bee Conservation</li>
+                <li className="flex items-center gap-2"><Clock className="h-4 w-4 text-honey-light" /> Traditional Methods</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Visit Our Farm</h4>
+              <p className="mb-2">We welcome visitors to experience our beekeeping practices firsthand.</p>
+              <p className="mb-4">Open for tours: Friday-Sunday, 10am-4pm</p>
+              <Link href="/contact" className="btn-secondary text-sm inline-block">Book a Tour</Link>
+            </div>
+          </div>
+          <div className="border-t border-white/20 mt-8 pt-8 text-center">
+            <p>&copy; {new Date().getFullYear()} Himalayan Honey. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
