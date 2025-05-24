@@ -33,8 +33,8 @@ export default function Home() {
       {isMounted && <HoneyBee />}
       
       {/* Navigation */}
-      <nav className="bg-honey text-white sticky top-0 z-50 backdrop-blur-sm">
-        <div className="container-custom flex justify-between items-center py-4">
+      <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center">
+        <div className="bg-honey/90 backdrop-blur-md text-white rounded-full py-4 px-8 shadow-lg max-w-7xl w-full mx-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-bold">Himalayan Honey</span>
           </div>
@@ -43,7 +43,7 @@ export default function Home() {
             <a href="#products" className="hover:text-honey-light transition-colors">Products</a>
             <a href="#sustainable" className="hover:text-honey-light transition-colors">Sustainability</a>
             <a href="#contact" className="hover:text-honey-light transition-colors">Contact</a>
-            <Link href="/shop" className="btn-primary">Shop Now</Link>
+            <Link href="/shop" className="bg-white text-honey-dark font-semibold py-2 px-6 rounded-full hover:bg-honey-light hover:text-white transition-colors">Shop Now</Link>
           </div>
           <button className="md:hidden text-white">
             <Menu className="w-6 h-6" />
@@ -51,8 +51,8 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center">
+      {/* Hero Section - Add padding-top to account for fixed header */}
+      <section className="relative h-[100vh] flex items-center pt-16">
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image 
@@ -311,8 +311,10 @@ export default function Home() {
                   <Twitter className="h-6 w-6" />
                 </a>
               </div>
-              
-              <div className="mt-8 w-full h-[300px] rounded-lg overflow-hidden">
+            </div>
+            
+            <div className="h-full flex items-center">
+              <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53965.20574836654!2d77.1746143!3d32.289673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39048775d6c6c549%3A0x2a182642dd11aebb!2sHimalayan%20Honey%20Bee%20farm%20Manali!5e0!3m2!1sen!2sin!4v1748109513226!5m2!1sen!2sin" 
                   width="100%" 
@@ -323,25 +325,6 @@ export default function Home() {
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
-            </div>
-            
-            <div>
-              <form className="bg-white p-6 rounded-lg shadow-lg text-honey-brown">
-                <h3 className="text-xl font-bold text-honey-dark mb-4">Send Us a Message</h3>
-                <div className="mb-4">
-                  <label htmlFor="name" className="block mb-2 font-medium">Your Name</label>
-                  <input type="text" id="name" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-honey" />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="email" className="block mb-2 font-medium">Your Email</label>
-                  <input type="email" id="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-honey" />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="message" className="block mb-2 font-medium">Message</label>
-                  <textarea id="message" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-honey"></textarea>
-                </div>
-                <button type="submit" className="btn-primary w-full">Send Message</button>
-              </form>
             </div>
           </div>
         </div>
