@@ -227,6 +227,102 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Apis Cerana Section */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <h2 className="section-title text-center mb-6 text-honey-dark">Meet Our Himalayan Honey Bees</h2>
+          <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-honey-brown">
+            Our farm is home to the remarkable Apis cerana - the Eastern honey bee native to the Himalayan region. These extraordinary creatures are perfectly adapted to our mountain ecosystem.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="bg-nature-cream/50 p-8 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold text-honey-dark mb-4">The Remarkable Apis Cerana</h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-honey-light/30 rounded-full p-3 mt-1">
+                    <Heart className="h-5 w-5 text-honey-dark" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-honey-dark mb-1">Himalayan Natives</h4>
+                    <p className="text-honey-brown">Unlike imported European honey bees, our Apis cerana are indigenous to the Himalayas and have evolved over millennia to thrive in our unique mountain climate with cold winters and monsoon seasons.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="bg-honey-light/30 rounded-full p-3 mt-1">
+                    <Leaf className="h-5 w-5 text-honey-dark" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-honey-dark mb-1">Natural Defenders</h4>
+                    <p className="text-honey-brown">These resilient bees have developed fascinating defense mechanisms against predators like hornets. They form a "bee ball" around invaders, raising their body temperature to literally cook the intruder!</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="bg-honey-light/30 rounded-full p-3 mt-1">
+                    <Clock className="h-5 w-5 text-honey-dark" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-honey-dark mb-1">Efficient Foragers</h4>
+                    <p className="text-honey-brown">Apis cerana can forage in light rain and misty conditions when other bee species remain in their hives. They're also expert pollinators of small-flowered Himalayan plants that larger bees can't access.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-xl">
+                <Image 
+                  src="/honey.jpg" 
+                  alt="Apis Cerana - Eastern Honey Bee" 
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              
+              <div className="bg-honey/90 backdrop-blur-sm text-white p-6 rounded-lg shadow-lg max-w-xs absolute -bottom-10 -left-10 transform rotate-2">
+                <h4 className="font-bold mb-2">Did You Know?</h4>
+                <p className="text-sm">Apis cerana produces a distinctive honey with complex floral notes that can't be replicated by other bee species. Their honey contains unique enzymes adapted to the high-altitude Himalayan flora!</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-20">
+            <div className="bg-honey-light/10 p-8 rounded-lg">
+              <h3 className="text-xl font-bold text-honey-dark mb-6 text-center">The Dance of the Himalayan Honey Bee</h3>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-white rounded-lg p-6 shadow-md transform transition-transform hover:scale-105 hover:rotate-1">
+                  <div className="w-16 h-16 bg-honey-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-honey-dark">01</span>
+                  </div>
+                  <h4 className="font-bold mb-2 text-honey-dark text-center">The Scout's Journey</h4>
+                  <p className="text-honey-brown text-center">When a scout bee discovers nectar-rich flowers in the Himalayan valleys, she memorizes the exact location using the sun and landscape as guides.</p>
+                </div>
+                
+                <div className="bg-white rounded-lg p-6 shadow-md transform transition-transform hover:scale-105 hover:-rotate-1">
+                  <div className="w-16 h-16 bg-honey-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-honey-dark">02</span>
+                  </div>
+                  <h4 className="font-bold mb-2 text-honey-dark text-center">The Waggle Dance</h4>
+                  <p className="text-honey-brown text-center">Returning to the hive, she performs a special figure-eight dance. The intensity and duration of her movements tell other bees exactly how far and in which direction to fly.</p>
+                </div>
+                
+                <div className="bg-white rounded-lg p-6 shadow-md transform transition-transform hover:scale-105 hover:rotate-1">
+                  <div className="w-16 h-16 bg-honey-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-honey-dark">03</span>
+                  </div>
+                  <h4 className="font-bold mb-2 text-honey-dark text-center">The Collective Harvest</h4>
+                  <p className="text-honey-brown text-center">Following the scout's instructions, worker bees fly directly to the flowers, collecting nectar and pollen that will eventually become our distinctive Himalayan honey.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Testimonials */}
       {/* <section className="py-20 bg-white">
         <div className="container-custom">
