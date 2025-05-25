@@ -21,10 +21,31 @@ import HoneyBee from "./components/HoneyBee";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   
   // Handle client-side mounting
   useEffect(() => {
     setIsMounted(true);
+    
+    // Add scroll event listener
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Check if scrolled past 100vh
+      if (scrollPosition > windowHeight*0.85) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // Clean up event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
   
   return (
@@ -34,7 +55,7 @@ export default function Home() {
       
       {/* Navigation */}
       <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center">
-        <div className="bg-honey/90 backdrop-blur-md text-white rounded-full py-4 px-8 shadow-lg max-w-7xl w-full mx-4 flex justify-between items-center">
+        <div className={`${scrolled ? 'bg-honey/60' : 'bg-honey/0'} transition-colors duration-300 backdrop-blur-md text-white rounded-full py-4 px-8 shadow-lg max-w-7xl w-full mx-4 flex justify-between items-center`}>
           <div className="flex items-center gap-2">
             <span className="text-2xl font-bold">Himalayan Honey</span>
           </div>
@@ -56,7 +77,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image 
-              src="/honeyz.jpg" 
+              src="/hero.avif" 
               alt="Himalayan Honey Farm" 
               fill 
               priority
@@ -88,7 +109,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <Image 
-                src="/honey.jpg" 
+                src="/honeyx.jpg" 
                 alt="Himalayan Beekeeper" 
                 fill
                 className="object-cover"
@@ -187,7 +208,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <Image 
-                src="/honeyx.jpg" 
+                src="/honeyz.jpg" 
                 alt="Sustainable Beekeeping" 
                 fill
                 className="object-cover"
@@ -199,25 +220,25 @@ export default function Home() {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <span className="text-nature-green mt-1">
-                    <Check className="h-5 w-5" />
+                    <Check className="h-5 w-5 text-white" />
                   </span>
                   <span className="text-white">We never harvest all the honey, ensuring our bees have enough to thrive year-round</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-nature-green mt-1">
-                    <Check className="h-5 w-5" />
+                    <Check className="h-5 w-5 text-white" />
                   </span>
                   <span className="text-white">Our hives are made from sustainable materials and designed to mimic natural habitats</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-nature-green mt-1">
-                    <Check className="h-5 w-5" />
+                    <Check className="h-5 w-5 text-white" />
                   </span>
                   <span className="text-white">We plant bee-friendly flowers and trees to support biodiversity in our region</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-nature-green mt-1">
-                    <Check className="h-5 w-5" />
+                    <Check className="h-5 w-5 text-white" />
                   </span>
                   <span className="text-white">We use zero chemicals or antibiotics in our beekeeping practices</span>
                 </li>
