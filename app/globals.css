@@ -31,7 +31,7 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-honey text-white font-semibold py-2 px-6 rounded-full hover:bg-honey-dark transition-colors;
+    @apply bg-nature-cream text-honey-dark font-semibold py-2 px-6 rounded-full hover:bg-honey-dark hover:text-honey-light transition-colors;
   }
   
   .btn-secondary {

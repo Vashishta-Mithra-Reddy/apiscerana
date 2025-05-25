@@ -77,7 +77,11 @@ const HoneyBee = () => {
         prevAngleRef.current = smoothAngle;
         
         // Apply the smooth position and rotation
-        beeRef.current.style.transform = `translate(${position.x}px, ${position.y}px) rotate(${smoothAngle}deg)`;
+        
+        // has rotation too 
+        // beeRef.current.style.transform = `translate(${position.x}px, ${position.y}px) rotate(${smoothAngle}deg)`;
+        beeRef.current.style.transform = `translate(${position.x}px, ${position.y}px)`;
+
       }
       
       requestRef.current = requestAnimationFrame(animate);
