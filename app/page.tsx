@@ -90,7 +90,7 @@ export default function Home() {
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Pure Himalayan Honey</h1>
             <p className="text-xl mb-8">Sustainably harvested from the pristine mountains of the Himalayas</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="#shop" className="btn-primary text-center">Shop Our Honey</Link>
+              <Link href="#products" className="btn-primary text-center">Shop Our Honey</Link>
               <a href="#about" className="btn-secondary text-center bg-white/20 border-white text-white hover:bg-white hover:text-honey-dark">Learn Our Story</a>
             </div>
           </div>
