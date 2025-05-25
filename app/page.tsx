@@ -107,7 +107,7 @@ export default function Home() {
               <p className="mb-6 text-lg text-honey-dark">My home is surrounded by beehives - they're in my garden, on my rooftop, and even inside specially designed areas of my home. Each day, I work alongside my bees, learning from them and ensuring they thrive in their natural environment.</p>
               <p className="text-lg text-honey-dark">The honey we harvest is pure, raw, and packed with the essence of Himalayan wildflowers. Every jar tells the story of our mountains, our bees, and our commitment to sustainable practices.</p>
             </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl bee-hotspot">
               <Image 
                 src="/honeyx.jpg" 
                 alt="Himalayan Beekeeper" 
@@ -120,7 +120,7 @@ export default function Home() {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-20 bg-white scroll-mt-12">
+      <section id="products" className="py-20 bg-white scroll-mt-12 bee-hotspot">
         <div className="container-custom">
           <h2 className="section-title text-center mb-6 text-honey-dark">Our Honey</h2>
           <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-honey-brown">

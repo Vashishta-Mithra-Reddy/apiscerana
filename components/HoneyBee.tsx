@@ -3,10 +3,15 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
-const HoneyBee = () => {
+interface HoneyBeeProps {
+  hotspotSelector?: string;
+}
+
+const HoneyBee = ({ hotspotSelector = '.bee-hotspot' }: HoneyBeeProps) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hover, setHover] = useState({ x: 0, y: 0 });
   const [rotation, setRotation] = useState(0);
+  const [activeHotspot, setActiveHotspot] = useState<DOMRect | null>(null);
   const requestRef = useRef<number | undefined>(undefined);
   const beeRef = useRef<HTMLDivElement>(null);
   const prevAngleRef = useRef(0);
@@ -28,32 +33,75 @@ const HoneyBee = () => {
     };
   }, []);
   
-  // Handle mouse movement
+  // Handle mouse movement and hotspot detection
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       // Add some delay to make movement more natural
       setHover({ x: e.clientX, y: e.clientY });
+      
+      // Check if cursor is inside any hotspot
+      const hotspots = document.querySelectorAll(hotspotSelector);
+      let isInHotspot = false;
+      
+      hotspots.forEach((hotspot) => {
+        const rect = hotspot.getBoundingClientRect();
+        
+        if (
+          e.clientX >= rect.left &&
+          e.clientX <= rect.right &&
+          e.clientY >= rect.top &&
+          e.clientY <= rect.bottom
+        ) {
+          setActiveHotspot(rect);
+          isInHotspot = true;
+        }
+      });
+      
+      // If not in any hotspot, clear active hotspot
+      if (!isInHotspot) {
+        setActiveHotspot(null);
+      }
     };
     
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [hotspotSelector]);
   
   // Animate bee movement with natural hovering
   useEffect(() => {
     const animate = () => {
       if (beeRef.current) {
+        let targetX, targetY;
+        
+        if (activeHotspot) {
+          // If in hotspot, hover within the hotspot area
+          const hotspotCenterX = activeHotspot.left + activeHotspot.width / 2;
+          const hotspotCenterY = activeHotspot.top + activeHotspot.height / 2;
+          
+          // Create a natural hovering pattern within the hotspot
+          // Use smaller radius for smaller hotspots
+          const hoverRadiusX = Math.min(activeHotspot.width / 4, 30);
+          const hoverRadiusY = Math.min(activeHotspot.height / 4, 30);
+          
+          targetX = hotspotCenterX + Math.sin(Date.now() / 1000) * hoverRadiusX;
+          targetY = hotspotCenterY + Math.cos(Date.now() / 800) * hoverRadiusY;
+        } else {
+          // Otherwise follow the cursor
+          targetX = hover.x;
+          targetY = hover.y;
+        }
+        
         // Calculate distance to target
-        const dx = hover.x - position.x;
-        const dy = hover.y - position.y;
+        const dx = targetX - position.x;
+        const dy = targetY - position.y;
         
         // Add slight random movement for hovering effect
         const hoverX = Math.sin(Date.now() / 300) * 5;
         const hoverY = Math.sin(Date.now() / 400) * 5;
         
-        // Move bee toward cursor with easing + hovering
+        // Move bee toward target with easing + hovering
         setPosition({
           x: position.x + dx * 0.05 + hoverX,
           y: position.y + dy * 0.05 + hoverY
@@ -77,11 +125,7 @@ const HoneyBee = () => {
         prevAngleRef.current = smoothAngle;
         
         // Apply the smooth position and rotation
-        
-        // has rotation too 
-        // beeRef.current.style.transform = `translate(${position.x}px, ${position.y}px) rotate(${smoothAngle}deg)`;
         beeRef.current.style.transform = `translate(${position.x}px, ${position.y}px)`;
-
       }
       
       requestRef.current = requestAnimationFrame(animate);
@@ -93,12 +137,12 @@ const HoneyBee = () => {
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, [hover, position]);
+  }, [hover, position, activeHotspot]);
   
   return (
     <div 
       ref={beeRef}
-      className="fixed z-50 pointer-events-none transition-transform duration-1000 ease-out"
+      className={`fixed z-50 pointer-events-none transition-transform duration-1000 ease-out ${activeHotspot ? 'in-hotspot' : ''}`}
       style={{ 
         left: -30, // Offset for center positioning
         top: -30,

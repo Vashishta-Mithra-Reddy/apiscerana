@@ -29,6 +29,15 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Add to your globals.css */
+.bee-hotspot {
+  cursor: pointer;
+}
+
+.in-hotspot {
+  filter: drop-shadow(0 0 8px rgba(242, 169, 0, 0.6));
+}
+
 @layer components {
   .btn-primary {
     @apply bg-nature-cream text-honey-dark font-semibold py-2 px-6 rounded-full hover:bg-honey-dark hover:text-honey-light transition-colors;
