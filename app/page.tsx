@@ -17,7 +17,7 @@ import {
   Heart
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import HoneyBee from "./components/HoneyBee";
+import HoneyBee from "../components/HoneyBee";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
