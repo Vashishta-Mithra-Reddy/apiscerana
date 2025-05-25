@@ -55,7 +55,7 @@ export default function Home() {
       
       {/* Navigation */}
       <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center">
-        <div className={`${scrolled ? 'bg-honey/60' : 'bg-honey/0'} transition-colors duration-300 backdrop-blur-md text-white rounded-full py-4 px-8 shadow-lg max-w-7xl w-full mx-4 flex justify-between items-center`}>
+        <div className={`${scrolled ? 'bg-nature-cream text-honey-dark' : 'bg-honey/0 text-white'} transition-colors duration-300 backdrop-blur-md rounded-full py-4 px-8 shadow-lg max-w-7xl w-full mx-4 flex justify-between items-center`}>
           <div className="flex items-center gap-2">
             <span className="text-2xl font-bold">Himalayan Honey</span>
           </div>
@@ -64,7 +64,7 @@ export default function Home() {
             <a href="#products" className="hover:text-honey-light transition-colors">Products</a>
             <a href="#sustainable" className="hover:text-honey-light transition-colors">Sustainability</a>
             <a href="#contact" className="hover:text-honey-light transition-colors">Contact</a>
-            <Link href="/shop" className="bg-white text-honey-dark font-semibold py-2 px-6 rounded-full hover:bg-honey-light hover:text-white transition-colors">Shop Now</Link>
+            <Link href="https://wa.me/919817046868" className="bg-white text-honey-dark font-semibold py-2 px-6 rounded-full hover:bg-honey-light hover:text-white transition-colors">Shop Now</Link>
           </div>
           <button className="md:hidden text-white">
             <Menu className="w-6 h-6" />
@@ -90,7 +90,7 @@ export default function Home() {
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Pure Himalayan Honey</h1>
             <p className="text-xl mb-8">Sustainably harvested from the pristine mountains of the Himalayas</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/shop" className="btn-primary text-center">Shop Our Honey</Link>
+              <Link href="#shop" className="btn-primary text-center">Shop Our Honey</Link>
               <a href="#about" className="btn-secondary text-center bg-white/20 border-white text-white hover:bg-white hover:text-honey-dark">Learn Our Story</a>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-nature-cream">
+      <section id="about" className="py-20 bg-nature-cream md:scroll-mt-28">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -120,7 +120,7 @@ export default function Home() {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-20 bg-white">
+      <section id="products" className="py-20 bg-white scroll-mt-12">
         <div className="container-custom">
           <h2 className="section-title text-center mb-6 text-honey-dark">Our Honey</h2>
           <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-honey-brown">
@@ -167,7 +167,7 @@ export default function Home() {
                     <span className="text-lg font-bold text-honey-dark">800 Rs.</span>
                     <span className="text-sm ml-2 text-honey-brown">(1000g jar)</span>
                   </div>
-                  <Link href="/shop" className="btn-primary">Shop Now</Link>
+                  <Link href="https://wa.me/919817046868" className="btn-primary">Shop Now</Link>
                 </div>
               </div>
             </div>
@@ -203,7 +203,7 @@ export default function Home() {
       </section>
 
       {/* Sustainability Section */}
-      <section id="sustainable" className="py-20 bg-honey-light/20">
+      <section id="sustainable" className="py-20 bg-nature-cream scroll-mt-28">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-[400px] rounded-lg overflow-hidden shadow-xl">
@@ -215,32 +215,32 @@ export default function Home() {
               />
             </div>
             <div className="order-1 md:order-2">
-              <h2 className="section-title text-white">Sustainable Beekeeping</h2>
-              <p className="mb-6 text-lg text-white">Our commitment to the environment goes beyond producing honey. We practice sustainable beekeeping methods that respect the natural cycles of our bees and protect their habitats.</p>
+              <h2 className="section-title text-honey-dark">Sustainable Beekeeping</h2>
+              <p className="mb-6 text-lg text-honey-dark">Our commitment to the environment goes beyond producing honey. We practice sustainable beekeeping methods that respect the natural cycles of our bees and protect their habitats.</p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <span className="text-nature-green mt-1">
-                    <Check className="h-5 w-5 text-white" />
+                    <Check className="h-5 w-5 text-honey-dark" />
                   </span>
-                  <span className="text-white">We never harvest all the honey, ensuring our bees have enough to thrive year-round</span>
+                  <span className="text-honey-dark">We never harvest all the honey, ensuring our bees have enough to thrive year-round</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-nature-green mt-1">
-                    <Check className="h-5 w-5 text-white" />
+                    <Check className="h-5 w-5 text-honey-dark" />
                   </span>
-                  <span className="text-white">Our hives are made from sustainable materials and designed to mimic natural habitats</span>
+                  <span className="text-honey-dark">Our hives are made from sustainable materials and designed to mimic natural habitats</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-nature-green mt-1">
-                    <Check className="h-5 w-5 text-white" />
+                    <Check className="h-5 w-5 text-honey-dark" />
                   </span>
-                  <span className="text-white">We plant bee-friendly flowers and trees to support biodiversity in our region</span>
+                  <span className="text-honey-dark">We plant bee-friendly flowers and trees to support biodiversity in our region</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-nature-green mt-1">
-                    <Check className="h-5 w-5 text-white" />
+                    <Check className="h-5 w-5 text-honey-dark" />
                   </span>
-                  <span className="text-white">We use zero chemicals or antibiotics in our beekeeping practices</span>
+                  <span className="text-honey-dark">We use zero chemicals or antibiotics in our beekeeping practices</span>
                 </li>
               </ul>
             </div>
@@ -389,35 +389,35 @@ export default function Home() {
       </section> */}
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-honey-dark text-white">
+      <section id="contact" className="py-20 bg-nature-cream text-white scroll-mt-28">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
-              <p className="mb-8 text-lg">Have questions about our honey or beekeeping practices? Want to arrange a visit to our farm? We'd love to hear from you!</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-honey-brown">Get In Touch</h2>
+              <p className="mb-8 text-lg text-honey-dark">Have questions about our honey or beekeeping practices? Want to arrange a visit to our farm? We'd love to hear from you!</p>
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <span className="text-honey-light mt-1">
+                  <span className="text-honey-dark mt-1">
                     <MapPin className="h-5 w-5" />
                   </span>
-                  <span>Chander Sen Thakur, VPO Burua, Manali, Burwa, Himachal Pradesh 175103</span>
+                  <span className="text-honey-dark">Chander Sen Thakur, VPO Burua, Manali, Burwa, Himachal Pradesh 175103</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-honey-light mt-1">
+                  <span className="text-honey-dark mt-1">
                     <Mail className="h-5 w-5" />
                   </span>
-                  <span>contact@himalayanhoney.com</span>
+                  <span className="text-honey-dark">contact@himalayanhoney.com</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-honey-light mt-1">
+                  <span className="text-honey-dark mt-1">
                     <Phone className="h-5 w-5" />
                   </span>
-                  <span>+91 98170 46868</span>
+                  <span className="text-honey-dark">+91 98170 46868</span>
                 </div>
               </div>
               
-              <div className="mt-8 flex gap-4">
+              {/* <div className="mt-8 flex gap-4">
                 <a href="#" className="text-honey-light hover:text-white transition-colors">
                   <Facebook className="h-6 w-6" />
                 </a>
@@ -427,7 +427,7 @@ export default function Home() {
                 <a href="#" className="text-honey-light hover:text-white transition-colors">
                   <Twitter className="h-6 w-6" />
                 </a>
-              </div>
+              </div> */}
             </div>
             
             <div className="h-full flex items-center">
@@ -448,7 +448,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-honey-brown text-white py-12">
+      {/* <footer className="bg-honey-brown text-white py-12">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
@@ -484,7 +484,7 @@ export default function Home() {
             <p>&copy; {new Date().getFullYear()} Himalayan Honey. All rights reserved.</p>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }

@@ -1,12 +1,15 @@
 'use client';
 
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 
 const HoneyBee = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hover, setHover] = useState({ x: 0, y: 0 });
+  const [rotation, setRotation] = useState(0);
   const requestRef = useRef<number | undefined>(undefined);
   const beeRef = useRef<HTMLDivElement>(null);
+  const prevAngleRef = useRef(0);
   
   // Initialize bee position in the center of the screen
   useEffect(() => {
@@ -56,9 +59,25 @@ const HoneyBee = () => {
           y: position.y + dy * 0.05 + hoverY
         });
         
-        // Apply rotation based on movement direction
-        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-        beeRef.current.style.transform = `translate(${position.x}px, ${position.y}px) rotate(${angle}deg)`;
+        // Calculate rotation angle based on movement direction
+        let newAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+        
+        // Smooth rotation transition by interpolating between previous and new angle
+        const angleDiff = newAngle - prevAngleRef.current;
+        
+        // Handle angle wrapping (e.g., going from 170 to -170 degrees)
+        if (angleDiff > 180) {
+          newAngle -= 360;
+        } else if (angleDiff < -180) {
+          newAngle += 360;
+        }
+        
+        // Apply easing to rotation
+        const smoothAngle = prevAngleRef.current + (newAngle - prevAngleRef.current) * 0.1;
+        prevAngleRef.current = smoothAngle;
+        
+        // Apply the smooth position and rotation
+        beeRef.current.style.transform = `translate(${position.x}px, ${position.y}px) rotate(${smoothAngle}deg)`;
       }
       
       requestRef.current = requestAnimationFrame(animate);
@@ -75,7 +94,7 @@ const HoneyBee = () => {
   return (
     <div 
       ref={beeRef}
-      className="fixed z-50 pointer-events-none"
+      className="fixed z-50 pointer-events-none transition-transform duration-1000 ease-out"
       style={{ 
         left: -30, // Offset for center positioning
         top: -30,
@@ -83,26 +102,13 @@ const HoneyBee = () => {
       }}
     >
       <div className="relative w-[60px] h-[60px] animate-bee-hover">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Bee Wings */}
-          <ellipse cx="20" cy="15" rx="15" ry="10" fill="rgba(255, 255, 255, 0.7)" />
-          <ellipse cx="40" cy="15" rx="15" ry="10" fill="rgba(255, 255, 255, 0.7)" />
-          
-          {/* Bee Body */}
-          <ellipse cx="30" cy="30" rx="15" ry="20" fill="#F2A900" />
-          
-          {/* Bee Stripes */}
-          <rect x="22" y="20" width="16" height="4" fill="#000" />
-          <rect x="22" y="28" width="16" height="4" fill="#000" />
-          <rect x="22" y="36" width="16" height="4" fill="#000" />
-          
-          {/* Bee Face */}
-          <circle cx="25" cy="25" r="2" fill="#000" />
-          <circle cx="35" cy="25" r="2" fill="#000" />
-          
-          {/* Bee Stinger */}
-          <path d="M30 50L27 55L30 53L33 55L30 50Z" fill="#000" />
-        </svg>
+        <Image 
+          src="/bee.png" 
+          alt="Honey Bee"
+          width={80}
+          height={80}
+          className="drop-shadow-lg"
+        />
         
         {/* Animated flight path */}
         <div className="absolute -z-10 opacity-40 top-[30px] left-[30px] w-[10px] h-[10px] rounded-full bg-honey-light blur-sm animate-bee-trail"></div>
