@@ -64,7 +64,7 @@ export default function Home() {
             <a href="#products" className="hover:text-honey-light transition-colors">Products</a>
             <a href="#sustainable" className="hover:text-honey-light transition-colors">Sustainability</a>
             <a href="#contact" className="hover:text-honey-light transition-colors">Contact</a>
-            <Link href="https://wa.me/919817046868" className="bg-white text-honey-dark font-semibold py-2 px-6 rounded-full hover:bg-honey-light hover:text-white transition-colors">Shop Now</Link>
+            <Link href="#products" className="bg-white text-honey-dark font-semibold py-2 px-6 rounded-full hover:bg-honey-light hover:text-white transition-colors">Shop Now</Link>
           </div>
           <button className="md:hidden text-white">
             <Menu className="w-6 h-6" />
