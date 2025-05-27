@@ -57,7 +57,7 @@ export default function Home() {
       <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center">
         <div className={`${scrolled ? 'bg-nature-cream text-honey-dark' : 'bg-honey/0 text-white'} transition-colors duration-300 backdrop-blur-md rounded-full py-4 px-8 shadow-lg max-w-7xl w-full mx-4 flex justify-between items-center`}>
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold">Himalayan Honey</span>
+            <span className="text-2xl font-bold">Rohtang Apiary</span>
           </div>
           <div className="hidden md:flex gap-8 items-center">
             <a href="#about" className="hover:text-honey-light transition-colors">About</a>
