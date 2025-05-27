@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Himalayan Honey Farm | Pure Natural Honey",
+  title: "Rohtang Apiary | Pure Natural Honey",
   description: "Discover the finest Himalayan honey, sustainably harvested by our dedicated beekeeper committed to preserving the ecosystem.",
   keywords: "Himalayan honey, natural honey, organic honey, sustainable beekeeping, honey products",
 };
