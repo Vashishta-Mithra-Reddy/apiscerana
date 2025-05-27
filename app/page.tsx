@@ -164,8 +164,10 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="text-lg font-bold text-honey-dark">800 Rs.</span>
+                    <span className="text-lg font-bold text-honey-dark">1500 - 1999 Rs.</span>
                     <span className="text-sm ml-2 text-honey-brown">(1000g jar)</span>
+                    <br></br>
+                    <span className="text-sm text-honey-brown">Price varies according to the harvest season.</span>
                   </div>
                   <Link href="https://wa.me/919817046868" className="btn-primary">Shop Now</Link>
                 </div>
@@ -206,7 +208,7 @@ export default function Home() {
       <section id="sustainable" className="py-20 bg-nature-cream scroll-mt-28">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1 relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+            <div className="order-2 md:order-1 relative h-[400px] rounded-lg overflow-hidden shadow-xl bee-hotspot">
               <Image 
                 src="/honeyz.jpg" 
                 alt="Sustainable Beekeeping" 
@@ -294,7 +296,7 @@ export default function Home() {
             </div>
             
             <div className="relative">
-              <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-xl bee-hotspot">
                 <Image 
                   src="/honey.jpg" 
                   alt="Apis Cerana - Eastern Honey Bee" 
@@ -431,7 +433,7 @@ export default function Home() {
             </div>
             
             <div className="h-full flex items-center">
-              <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
+              <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg bee-hotspot">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53965.20574836654!2d77.1746143!3d32.289673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39048775d6c6c549%3A0x2a182642dd11aebb!2sHimalayan%20Honey%20Bee%20farm%20Manali!5e0!3m2!1sen!2sin!4v1748109513226!5m2!1sen!2sin" 
                   width="100%" 
