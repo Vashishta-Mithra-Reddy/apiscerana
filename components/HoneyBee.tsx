@@ -12,6 +12,7 @@ const HoneyBee = ({ hotspotSelector = '.bee-hotspot' }: HoneyBeeProps) => {
   const [hover, setHover] = useState({ x: 0, y: 0 });
   const [rotation, setRotation] = useState(0);
   const [activeHotspot, setActiveHotspot] = useState<DOMRect | null>(null);
+  const [isLockedToHotspot, setIsLockedToHotspot] = useState(false);
   const requestRef = useRef<number | undefined>(undefined);
   const beeRef = useRef<HTMLDivElement>(null);
   const prevAngleRef = useRef(0);
@@ -39,6 +40,9 @@ const HoneyBee = ({ hotspotSelector = '.bee-hotspot' }: HoneyBeeProps) => {
       // Add some delay to make movement more natural
       setHover({ x: e.clientX, y: e.clientY });
       
+      // If already locked to a hotspot, don't check for new ones
+      if (isLockedToHotspot) return;
+      
       // Check if cursor is inside any hotspot
       const hotspots = document.querySelectorAll(hotspotSelector);
       let isInHotspot = false;
@@ -53,12 +57,13 @@ const HoneyBee = ({ hotspotSelector = '.bee-hotspot' }: HoneyBeeProps) => {
           e.clientY <= rect.bottom
         ) {
           setActiveHotspot(rect);
+          setIsLockedToHotspot(true); // Lock the bee to this hotspot
           isInHotspot = true;
         }
       });
       
-      // If not in any hotspot, clear active hotspot
-      if (!isInHotspot) {
+      // If not in any hotspot and not locked, clear active hotspot
+      if (!isInHotspot && !isLockedToHotspot) {
         setActiveHotspot(null);
       }
     };
@@ -67,7 +72,7 @@ const HoneyBee = ({ hotspotSelector = '.bee-hotspot' }: HoneyBeeProps) => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [hotspotSelector]);
+  }, [hotspotSelector, isLockedToHotspot]);
   
   // Animate bee movement with natural hovering
   useEffect(() => {
@@ -142,7 +147,7 @@ const HoneyBee = ({ hotspotSelector = '.bee-hotspot' }: HoneyBeeProps) => {
   return (
     <div 
       ref={beeRef}
-      className={`fixed z-50 pointer-events-none transition-transform duration-1000 ease-out ${activeHotspot ? 'in-hotspot' : ''}`}
+      className={`fixed z-50 pointer-events-none transition-transform duration-1000 ease-out ${isLockedToHotspot ? 'locked-to-hotspot' : ''} ${activeHotspot ? 'in-hotspot' : ''}`}
       style={{ 
         left: -30, // Offset for center positioning
         top: -30,

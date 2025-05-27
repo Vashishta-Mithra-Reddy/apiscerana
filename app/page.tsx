@@ -120,7 +120,7 @@ export default function Home() {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-20 bg-white scroll-mt-12 bee-hotspot">
+      <section id="products" className="py-20 bg-white scroll-mt-12">
         <div className="container-custom">
           <h2 className="section-title text-center mb-6 text-honey-dark">Our Honey</h2>
           <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-honey-brown">
@@ -129,7 +129,7 @@ export default function Home() {
           
           <div className="flex justify-center">
             <div className="bg-nature-cream rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-[1.02] w-full max-w-4xl flex flex-col md:flex-row">
-              <div className="relative md:w-2/5 h-80 md:h-auto">
+              <div className="relative md:w-2/5 h-80 md:h-auto bee-hotspot">
                 <Image 
                   src="/honey_jar.jpg" 
                   alt="Himalayan Multi-Floral Honey" 
