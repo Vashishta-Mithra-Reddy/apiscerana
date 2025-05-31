@@ -18,6 +18,112 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import HoneyBee from "../components/HoneyBee";
+import Gallery from "@/components/Gallery";
+
+const galleryItems = [
+  {
+    id: "1",
+    title: "Bee Hive",
+    description: "Bee hive in the mountains",
+    imageUrl: "/photos/1.jpg"
+  },
+  {
+    id: "2",
+    title: "Bee Hive",
+    description: "Bee hive in the mountains in the winter snow",
+    imageUrl: "/photos/2.jpg"
+  },
+  {
+    id: "3",
+    title: "Bee Hive",
+    description: "Natural honey extraction",
+    imageUrl: "/photos/3.jpg"
+  },
+  {
+    id: "4",
+    title: "Bee Hive",
+    description: "Quality honey processing",
+    imageUrl: "/photos/4.jpg"
+  },
+  {
+    id: "5",
+    title: "Bee Hive",
+    description: "Premium honey packaging",
+    imageUrl: "/photos/5.jpg"
+  },
+  {
+    id: "6",
+    title: "Bee Hive",
+    description: "Sustainable honey farming",
+    imageUrl: "/photos/6.jpg"
+  },
+  {
+    id: "7",
+    title: "Bee Hive",
+    description: "Organic honey production",
+    imageUrl: "/photos/7.jpg"
+  },
+  {
+    id: "8",
+    title: "Bee Hive",
+    description: "Himalayan bee colonies",
+    imageUrl: "/photos/8.jpg"
+  },
+  {
+    id: "9",
+    title: "Bee Hive",
+    description: "Raw honey collection",
+    imageUrl: "/photos/9.jpg"
+  },
+  {
+    id: "10",
+    title: "Bee Hive",
+    description: "Mountain honey varieties",
+    imageUrl: "/photos/10.jpg"
+  },
+  {
+    id: "11",
+    title: "Bee Hive",
+    description: "Natural beekeeping practices",
+    imageUrl: "/photos/11.jpg"
+  },
+  {
+    id: "12",
+    title: "Bee Hive",
+    description: "Honey harvesting season",
+    imageUrl: "/photos/12.jpg"
+  },
+  {
+    id: "13",
+    title: "Bee Hive",
+    description: "Pure honey extraction",
+    imageUrl: "/photos/13.jpg"
+  },
+  {
+    id: "14",
+    title: "Bee Hive",
+    description: "Traditional honey processing",
+    imageUrl: "/photos/14.jpg"
+  },
+  {
+    id: "15",
+    title: "Bee Hive",
+    description: "Quality honey production",
+    imageUrl: "/photos/15.jpg"
+  },
+  {
+    id: "16",
+    title: "Honey Collection",
+    description: "Himalayan honey varieties",
+    imageUrl: "/photos/16.jpg"
+  },
+  {
+    id: "17",
+    title: "Bee Hive Hanging from a tree",
+    description: "Premium honey selection",
+    imageUrl: "/photos/17.jpg"
+  }
+];
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
@@ -62,6 +168,7 @@ export default function Home() {
           <div className="hidden md:flex gap-8 items-center">
             <a href="#about" className="hover:text-honey-light transition-colors">About</a>
             <a href="#products" className="hover:text-honey-light transition-colors">Products</a>
+            <a href="#gallery" className="hover:text-honey-light transition-colors">Gallery</a>
             <a href="#sustainable" className="hover:text-honey-light transition-colors">Sustainability</a>
             <a href="#contact" className="hover:text-honey-light transition-colors">Contact</a>
             <Link href="#products" className="bg-white text-honey-dark font-semibold py-2 px-6 rounded-full hover:bg-honey-light hover:text-white transition-colors">Shop Now</Link>
@@ -201,6 +308,17 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-20 bg-white scroll-mt-12">
+        <div className="container-custom">
+          <h2 className="section-title text-center mb-6 text-honey-dark">Our Gallery</h2>
+          <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-honey-brown">
+            Explore the beauty of our farm and the diverse wildflowers that create the honey we produce.
+          </p>
+          <Gallery items={galleryItems} />
         </div>
       </section>
 
