@@ -173,7 +173,7 @@ export default function Home() {
             <a href="#contact" className="hover:text-honey-light transition-colors">Contact</a>
             <Link href="#products" className="bg-white text-honey-dark font-semibold py-2 px-6 rounded-full hover:bg-honey-light hover:text-white transition-colors">Shop Now</Link>
           </div>
-          <button className="md:hidden text-white">
+          <button className="md:hidden text-honey-dark">
             <Menu className="w-6 h-6" />
           </button>
         </div>
@@ -192,7 +192,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="container-custom relative z-10 text-white">
+        <div className="container-custom relative z-10 text-white text-center md:text-left px-8">
           <div className="max-w-2xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Pure Himalayan Honey</h1>
             <p className="text-xl mb-8">Sustainably harvested from the pristine mountains of the Himalayas</p>
@@ -205,7 +205,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-nature-cream md:scroll-mt-28">
+      <section id="about" className="py-20 bg-nature-cream md:scroll-mt-28 wrapperx">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -227,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-20 bg-white scroll-mt-12">
+      <section id="products" className="py-20 bg-white scroll-mt-12 wrapperx">
         <div className="container-custom">
           <h2 className="section-title text-center mb-6 text-honey-dark">Our Honey</h2>
           <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-honey-brown">
@@ -260,7 +260,7 @@ export default function Home() {
                     <span className="text-nature-green mt-1">
                       <Check className="h-5 w-5" />
                     </span>
-                    <span className="text-honey-brown">Rich in natural enzymes and antioxidants</span>
+                    <span className="text-honey-brown line-clamp-1">Rich in natural enzymes and antioxidants</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-nature-green mt-1">
@@ -269,14 +269,14 @@ export default function Home() {
                     <span className="text-honey-brown">Harvested using traditional methods</span>
                   </div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center md:flex-row flex-col">
                   <div>
                     <span className="text-lg font-bold text-honey-dark">1500 - 1999 Rs.</span>
                     <span className="text-sm ml-2 text-honey-brown">(1000g jar)</span>
                     <br></br>
-                    <span className="text-sm text-honey-brown">Price varies according to the harvest season.</span>
+                    <span className="text-sm text-honey-brown text-balance">Price varies according to the harvest season.</span>
                   </div>
-                  <Link href="https://wa.me/919817046868" className="btn-primary">Shop Now</Link>
+                  <Link href="https://wa.me/919817046868" className="btn-primary md:mt-0 mt-6 border-dashed border-2 border-honey-dark">Shop Now</Link>
                 </div>
               </div>
             </div>
@@ -312,7 +312,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-white scroll-mt-12">
+      <section id="gallery" className="py-20 bg-white scroll-mt-12 wrapperx">
         <div className="container-custom">
           <h2 className="section-title text-center mb-6 text-honey-dark">Our Gallery</h2>
           <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-honey-brown">
@@ -323,7 +323,7 @@ export default function Home() {
       </section>
 
       {/* Sustainability Section */}
-      <section id="sustainable" className="py-20 bg-nature-cream scroll-mt-28">
+      <section id="sustainable" className="py-20 bg-nature-cream scroll-mt-28 wrapperx">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-[400px] rounded-lg overflow-hidden shadow-xl bee-hotspot">
@@ -369,7 +369,7 @@ export default function Home() {
       </section>
 
       {/* Apis Cerana Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white wrapperx">
         <div className="container-custom">
           <h2 className="section-title text-center mb-6 text-honey-dark">Meet Our Himalayan Honey Bees</h2>
           <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-honey-brown">
@@ -378,10 +378,10 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="bg-nature-cream/50 p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold text-honey-dark mb-4">The Remarkable Apis Cerana</h3>
+              <h3 className="text-2xl font-bold text-honey-dark mb-8 md:mb-8">The Remarkable Apis Cerana</h3>
               
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
+              <div className="space-y-12 md:space-y-8">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
                   <div className="bg-honey-light/30 rounded-full p-3 mt-1">
                     <Heart className="h-5 w-5 text-honey-dark" />
                   </div>
@@ -391,7 +391,7 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
                   <div className="bg-honey-light/30 rounded-full p-3 mt-1">
                     <Leaf className="h-5 w-5 text-honey-dark" />
                   </div>
@@ -401,7 +401,7 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
                   <div className="bg-honey-light/30 rounded-full p-3 mt-1">
                     <Clock className="h-5 w-5 text-honey-dark" />
                   </div>
@@ -509,27 +509,27 @@ export default function Home() {
       </section> */}
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-nature-cream text-white scroll-mt-28">
+      <section id="contact" className="py-20 bg-nature-cream text-white scroll-mt-28 wrapperx">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-honey-brown">Get In Touch</h2>
               <p className="mb-8 text-lg text-honey-dark">Have questions about our honey or beekeeping practices? Want to arrange a visit to our farm? We'd love to hear from you!</p>
               
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
+              <div className="space-y-4 flex flex-col items-center md:items-start">
+                <div className="flex md:items-start items-center gap-3">
                   <span className="text-honey-dark mt-1">
                     <MapPin className="h-5 w-5" />
                   </span>
                   <span className="text-honey-dark">Chander Sen Thakur, VPO Burua, Manali, Burwa, Himachal Pradesh 175103</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex md:items-start items-center gap-3">
                   <span className="text-honey-dark mt-1">
                     <Mail className="h-5 w-5" />
                   </span>
                   <span className="text-honey-dark">contact@himalayanhoney.com</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex md:items-start items-center gap-3">
                   <span className="text-honey-dark mt-1">
                     <Phone className="h-5 w-5" />
                   </span>

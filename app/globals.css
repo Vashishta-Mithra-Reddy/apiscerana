@@ -66,3 +66,7 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
 }
+
+.wrapperx{
+  @apply text-center md:text-left md:px-0 px-8;
+}
